@@ -3,7 +3,6 @@ package ru.netology.test;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.data.DbUtils;
@@ -47,7 +46,6 @@ class DeadlineLoginTest {
     }
 
     @Test
-    @Disabled("Known SUT bug: the user is not blocked after three wrong password attempts in the current app-deadline.jar build")
     void shouldBlockUserAfterThreeWrongPasswordAttempts() {
         var validUser = DataHelper.getValidAuthInfo();
         var invalidPasswordUser = DataHelper.getAuthInfoWithWrongPassword(validUser);
