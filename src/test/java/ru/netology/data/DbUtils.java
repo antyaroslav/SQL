@@ -52,6 +52,17 @@ public final class DbUtils {
         }
     }
 
+    public static void cleanDatabase() {
+        try (Connection conn = getConnection()) {
+            RUNNER.update(conn, "DELETE FROM auth_codes");
+            RUNNER.update(conn, "DELETE FROM card_transactions");
+            RUNNER.update(conn, "DELETE FROM cards");
+            RUNNER.update(conn, "DELETE FROM users");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
     }

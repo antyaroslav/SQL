@@ -1,5 +1,7 @@
 package ru.netology.data;
 
+import lombok.Value;
+
 public final class DataHelper {
     private DataHelper() {
     }
@@ -20,33 +22,14 @@ public final class DataHelper {
         return new VerificationCode(DbUtils.getVerificationCode(authInfo.getLogin()));
     }
 
-    public static final class AuthInfo {
-        private final String login;
-        private final String password;
-
-        public AuthInfo(String login, String password) {
-            this.login = login;
-            this.password = password;
-        }
-
-        public String getLogin() {
-            return login;
-        }
-
-        public String getPassword() {
-            return password;
-        }
+    @Value
+    public static class AuthInfo {
+        String login;
+        String password;
     }
 
-    public static final class VerificationCode {
-        private final String code;
-
-        public VerificationCode(String code) {
-            this.code = code;
-        }
-
-        public String getCode() {
-            return code;
-        }
+    @Value
+    public static class VerificationCode {
+        String code;
     }
 }

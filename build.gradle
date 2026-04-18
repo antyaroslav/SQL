@@ -10,6 +10,8 @@ repositories {
 }
 
 dependencies {
+    testCompileOnly 'org.projectlombok:lombok:1.18.32'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
     testImplementation 'com.codeborne:selenide:6.19.1'
     testImplementation 'commons-dbutils:commons-dbutils:1.8.1'
     testImplementation 'mysql:mysql-connector-java:8.0.33'
