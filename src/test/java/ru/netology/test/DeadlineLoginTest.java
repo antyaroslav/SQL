@@ -73,6 +73,7 @@ class DeadlineLoginTest {
         var loginPage = open(BASE_URL, LoginPage.class);
 
         VerificationPage verificationPage = loginPage.validLogin(authInfo);
-        verificationPage.invalidVerify(new DataHelper.VerificationCode("000000"), INVALID_CODE_MESSAGE);
+        var invalidCode = DataHelper.getInvalidVerificationCodeFor(authInfo);
+        verificationPage.invalidVerify(invalidCode, INVALID_CODE_MESSAGE);
     }
 }
